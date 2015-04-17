@@ -15,15 +15,28 @@ transaction =
 		value = "('#{t.userId}','#{t.name}','#{t.amount}','#{t.tag}','#{t.type}','#{t.date.toISOString()}')"
 		sql = "INSERT INTO `#{table}` #{field} VALUES #{value}"
 		db.query sql, callback
+	edit: (t, cb) ->
+		callback = (rows) ->
+			cb()
+		set = "`name`='#{t.name}',`amount`='#{t.amount}',`tag`='#{t.tag}',`date`='#{t.date.toISOString()}',`type`='#{t.type}'"
+		conditional = "`id` = #{t.id}"
+		sql = "UPDATE `#{table}` SET #{set} WHERE #{conditional}"
+		db.query sql, callback
+	delete: (t, cb) ->
+		callback = (rows) ->
+			cb()
+		conditional = "`id` = #{t.id}"
+		sql = "DELETE FROM `#{table}` WHERE #{conditional}"
+		db.query sql, callback
 
 getDateConditional = (date) ->
-	field = '`date`'
+	field = 'date'
 	switch date
-		when "thisweek" then result = "YEARWEEK(#{field})=YEARWEEK(NOW())"
-		when "thismonth" then result = "YEAR(#{field}) = YEAR(NOW()) AND MONTH(#{field}) = MONTH(NOW())"
-		when "lastmonth" then result = "YEAR(#{field}) = YEAR(CURRENT_DATE - INTERVAL 1 MONTH) AND MONTH(#{field}) = MONTH(CURRENT_DATE - INTERVAL 1 MONTH)"
-		when "thisyear" then result = "YEAR(#{field}) = YEAR(CURDATE())"
-		when "lastyear" then result = "YEAR(#{field}) = YEAR(DATE_SUB(CURDATE(), INTERVAL 1 YEAR))"
+		when "thisweek" then result = "YEARWEEK(`#{field}`)=YEARWEEK(NOW())"
+		when "thismonth" then result = "YEAR(`#{field}`) = YEAR(NOW()) AND MONTH(`#{field}`) = MONTH(NOW())"
+		when "lastmonth" then result = "YEAR(`#{field}`) = YEAR(CURRENT_DATE - INTERVAL 1 MONTH) AND MONTH(`#{field}`) = MONTH(CURRENT_DATE - INTERVAL 1 MONTH)"
+		when "thisyear" then result = "YEAR(`#{field}`) = YEAR(CURDATE())"
+		when "lastyear" then result = "YEAR(`#{field}`) = YEAR(DATE_SUB(CURDATE(), INTERVAL 1 YEAR))"
 		else result = "1"
 	result
 

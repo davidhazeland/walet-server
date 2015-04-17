@@ -3,6 +3,8 @@ router = express.Router()
 transaction = require '../services/transaction'
 AddTransactionHandler = require '../handlers/add-transaction'
 FetchTransactionHandler = require '../handlers/fetch-transaction'
+EditTransactionHandler = require '../handlers/edit-transaction'
+DeleteTransactionHandler = require '../handlers/delete-transaction'
 
 # GET transactions listing.
 router.get '/', (req, res) ->
@@ -21,5 +23,21 @@ router.post '/', (req, res) ->
 			message: message
 	data = req.body
 	AddTransactionHandler.handle data, callback
+
+router.put '/', (req, res) ->
+	callback = (message) ->
+		res.json
+			success: true
+			message: message
+	data = req.body
+	EditTransactionHandler.handle data, callback
+
+router.delete '/', (req, res) ->
+	callback = (message) ->
+		res.json
+			success: true
+			message: message
+	data = req.body
+	DeleteTransactionHandler.handle data, callback
 
 module.exports = router
