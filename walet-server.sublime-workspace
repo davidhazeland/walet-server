@@ -4,29 +4,49 @@
 		"selected_items":
 		[
 			[
+				"ta",
+				"table"
+			],
+			[
+				"re",
+				"result"
+			],
+			[
+				"con",
+				"conditional"
+			],
+			[
+				"sql",
+				"sqlBuilder"
+			],
+			[
+				"s",
+				"sqlBuilder"
+			],
+			[
+				"ha",
+				"handler"
+			],
+			[
+				"tra",
+				"transactions"
+			],
+			[
+				"tran",
+				"trans"
+			],
+			[
 				"r",
 				"rows"
 			],
 			[
 				"connect",
 				"connection"
-			],
-			[
-				"re",
-				"response"
 			]
 		]
 	},
 	"buffers":
 	[
-		{
-			"file": "app.js",
-			"settings":
-			{
-				"buffer_size": 1647,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -35,10 +55,14 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 196.0,
-		"last_filter": "",
+		"height": 392.0,
+		"last_filter": "dis",
 		"selected_items":
 		[
+			[
+				"dis",
+				"Package Control: Disable Package"
+			],
 			[
 				"ins",
 				"Package Control: Install Package"
@@ -64,7 +88,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 400.0
+		"width": 416.0
 	},
 	"console":
 	{
@@ -85,10 +109,32 @@
 	},
 	"expanded_folders":
 	[
-		"/E/GitHub/walet-server"
+		"/E/GitHub/walet-server",
+		"/E/GitHub/walet-server/handlers",
+		"/E/GitHub/walet-server/routes",
+		"/E/GitHub/walet-server/services"
 	],
 	"file_history":
 	[
+		"/E/GitHub/walet-server/routes/transaction.coffee",
+		"/E/GitHub/walet-server/handlers/fetch-tag-dashboard.coffee",
+		"/E/GitHub/walet-server/handlers/fetch-compare-dashboard.coffee",
+		"/E/GitHub/walet-server/services/dashboard.coffee",
+		"/E/GitHub/walet-server/services/date-filter.coffee",
+		"/E/Documents/tutorial/Social Psychology/3 - 8 - Lecture 3.5- The Dark Side of Deindividuation (Part 1- Watch Before Quiet Rage).srt",
+		"/C/Users/ThanhCong/Desktop/1.srt",
+		"/E/Documents/tutorial/Social Psychology/3 - 7 - Lecture 3.4- Group Pressure and Conformity (Part 2).srt",
+		"/E/GitHub/walet-server/services/transaction.coffee",
+		"/E/GitHub/walet-server/handlers/edit-transaction.coffee",
+		"/E/GitHub/walet-server/handlers/delete-transaction.coffee",
+		"/E/GitHub/walet-server/handlers/add-transaction.coffee",
+		"/E/GitHub/walet-server/handlers/fetch-transaction.coffee",
+		"/E/GitHub/walet-server/app.js",
+		"/E/GitHub/walet-server/services/sql-builder.coffee",
+		"/E/GitHub/walet-server/services/sqlBuilder.coffee",
+		"/E/GitHub/walet-server/services/connection.coffee",
+		"/E/GitHub/walet-server/services/db.coffee",
+		"/E/GitHub/walet-server/routes/user.coffee",
 		"/E/GitHub/express/routes/user.coffee",
 		"/C/Users/ThanhCong/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
 		"/E/GitHub/walet-api/app.js",
@@ -97,11 +143,11 @@
 	],
 	"find":
 	{
-		"height": 28.0
+		"height": 30.0
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 102.0,
 		"where_history":
 		[
 		]
@@ -111,6 +157,31 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"FetchCompareTagHandler",
+			"dashboard",
+			"item.date",
+			"\"",
+			"transaction",
+			"#{field}",
+			"callback",
+			"value",
+			"filter",
+			"date_created",
+			"registered",
+			"time",
+			"#{field}",
+			"'",
+			"`date`",
+			"{field}",
+			"date_created",
+			"timestampfield",
+			"date",
+			"query",
+			"transaction",
+			"callback",
+			"trans",
+			"users",
+			"cb",
 			"font_face",
 			"font_fami",
 			"=="
@@ -132,92 +203,14 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "app.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1647,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								34,
-								34
-							]
-						],
-						"settings":
-						{
-							"c_time":
-							[
-								128,
-								3,
-								99,
-								100,
-								97,
-								116,
-								101,
-								116,
-								105,
-								109,
-								101,
-								10,
-								100,
-								97,
-								116,
-								101,
-								116,
-								105,
-								109,
-								101,
-								10,
-								113,
-								0,
-								67,
-								10,
-								7,
-								223,
-								4,
-								17,
-								10,
-								7,
-								59,
-								0,
-								0,
-								0,
-								113,
-								1,
-								133,
-								113,
-								2,
-								82,
-								113,
-								3,
-								46
-							],
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 28.0
+		"height": 30.0
 	},
 	"input":
 	{
@@ -254,7 +247,7 @@
 	"project": "walet-server.sublime-project",
 	"replace":
 	{
-		"height": 52.0
+		"height": 56.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -263,6 +256,22 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"add",
+				"handlers\\add-transaction.coffee"
+			],
+			[
+				"routr",
+				"routes\\transaction.coffee"
+			],
+			[
+				"sertrans",
+				"services\\transaction.coffee"
+			],
+			[
+				"fetch",
+				"handlers\\fetch-transaction.coffee"
+			],
 			[
 				"",
 				"services/db.coffee"
@@ -300,7 +309,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 150.0,
+	"side_bar_width": 189.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

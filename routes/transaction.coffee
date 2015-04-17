@@ -1,10 +1,11 @@
 express = require 'express'
 router = express.Router()
-transaction = require '../services/transaction'
 AddTransactionHandler = require '../handlers/add-transaction'
 FetchTransactionHandler = require '../handlers/fetch-transaction'
 EditTransactionHandler = require '../handlers/edit-transaction'
 DeleteTransactionHandler = require '../handlers/delete-transaction'
+FetchCompareDashboardHandler = require '../handlers/fetch-compare-dashboard'
+FetchTagDashboardHandler = require '../handlers/fetch-tag-dashboard'
 
 # GET transactions listing.
 router.get '/', (req, res) ->
@@ -39,5 +40,21 @@ router.delete '/', (req, res) ->
 			message: message
 	data = req.body
 	DeleteTransactionHandler.handle data, callback
+
+router.get '/dashboard/compare', (req, res) ->
+	callback = (transactions) ->
+		res.json
+			success: true
+			data: transactions
+	query = req.query
+	FetchCompareDashboardHandler.handle query, callback
+
+router.get '/dashboard/tag', (req, res) ->
+	callback = (transactions) ->
+		res.json
+			success: true
+			data: transactions
+	query = req.query
+	FetchTagDashboardHandler.handle query, callback
 
 module.exports = router
