@@ -7,14 +7,17 @@ transaction =
 	fetch: (query, cb) ->
 		callback = (rows) ->
 			cb rows
-		conditional = "`type`='#{query.type}' and `name` LIKE '%#{query.term}%' 
-			and #{DateFilter.build(query.date, 'date')}"
-		item = "id, name, amount, tag, date"
-		sql = "SELECT #{item} FROM `#{table}` WHERE #{conditional}"
+		type = "`type`='#{query.type}'"
+		type = "1" if not query.type?
+		term = "`name` LIKE '%#{query.term}%'"
+		term = "1" if not query.term?	
+		conditional = "#{type} and #{term} and #{DateFilter.build(query.date, 'date')}"
+		item = "id, name, amount, tag, type, date"
+		sql = "SELECT #{item} FROM `#{table}` WHERE #{conditional} ORDER BY `date` DESC"
 		db.query sql, callback
 	add: (t, cb) ->
 		callback = (rows) ->
-			cb()
+			cb rows
 		field = '(`user_id`, `name`, `amount`, `tag`, `type`, `date`)'
 		value = "('#{t.userId}','#{t.name}','#{t.amount}','#{t.tag}','#{t.type}','#{t.date.toISOString()}')"
 		sql = "INSERT INTO `#{table}` #{field} VALUES #{value}"

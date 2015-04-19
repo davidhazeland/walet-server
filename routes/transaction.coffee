@@ -6,6 +6,7 @@ EditTransactionHandler = require '../handlers/edit-transaction'
 DeleteTransactionHandler = require '../handlers/delete-transaction'
 FetchCompareDashboardHandler = require '../handlers/fetch-compare-dashboard'
 FetchTagDashboardHandler = require '../handlers/fetch-tag-dashboard'
+FetchDashboardHandler = require '../handlers/fetch-dashboard'
 
 # GET transactions listing.
 router.get '/', (req, res) ->
@@ -18,10 +19,10 @@ router.get '/', (req, res) ->
 
 # ADD transaction into database
 router.post '/', (req, res) ->
-	callback = (message) ->
+	callback = (data) ->
 		res.json
 			success: true
-			message: message
+			data: data
 	data = req.body
 	AddTransactionHandler.handle data, callback
 
@@ -41,13 +42,13 @@ router.delete '/', (req, res) ->
 	data = req.body
 	DeleteTransactionHandler.handle data, callback
 
-router.get '/dashboard/compare', (req, res) ->
-	callback = (transactions) ->
+router.get '/dashboard', (req, res) ->
+	callback = (data) ->
 		res.json
 			success: true
-			data: transactions
+			data: data
 	query = req.query
-	FetchCompareDashboardHandler.handle query, callback
+	FetchDashboardHandler.handle query, callback
 
 router.get '/dashboard/tag', (req, res) ->
 	callback = (transactions) ->
@@ -56,5 +57,13 @@ router.get '/dashboard/tag', (req, res) ->
 			data: transactions
 	query = req.query
 	FetchTagDashboardHandler.handle query, callback
+
+router.get '/dashboard/compare', (req, res) ->
+	callback = (transactions) ->
+		res.json
+			success: true
+			data: transactions
+	query = req.query
+	FetchCompareDashboardHandler.handle query, callback
 
 module.exports = router

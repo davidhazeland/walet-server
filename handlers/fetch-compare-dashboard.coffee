@@ -22,7 +22,7 @@ handler =
 		callback = (data) ->
 			result = {}
 			for item in data
-				name = monthNames[item.date - 1]
+				name = item.date
 				result[name] = {} if not result[name]?
 				result[name][item.type] = item.total
 			cb result

@@ -15,8 +15,8 @@ dashboard =
 	fetchTag: (query, cb) ->
 		callback = (rows) ->
 			cb rows
-		item = "amount, tag"
-		conditional = "`type`='#{query.type}' and #{DateFilter.build query.date, 'date'}"
+		item = "amount, tag, type"
+		conditional = "#{DateFilter.build query.date, 'date'}"
 		sql = "SELECT #{item} FROM `#{table}` WHERE #{conditional}"
 		db.query sql, callback
 

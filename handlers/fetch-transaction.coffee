@@ -16,9 +16,10 @@ handler =
 			# Return
 			callback 
 				items: transaction[start..end]
-				overview:
-					total: total
+				total:
+					amount: total
 					type: data.type
+				count: transaction.length
 
 		# Query
 		query =
